@@ -334,8 +334,8 @@
                     Evolve Cloud
                 </a>
                 <nav class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="products.html">Products</a>
+                    <a href="/">Home</a>
+                    <a href="products">Products</a>
                 </nav>
             </div>
         </div>
@@ -377,7 +377,7 @@
         document.querySelectorAll('.buy-button').forEach(button => {
             if (!button.hasAttribute('onclick')) {
                 button.addEventListener('click', () => {
-                    window.location.href = 'index.html';
+                    window.open('https://discord.gg/CTuTSeteq8', '_blank');
                 });
             }
         });
