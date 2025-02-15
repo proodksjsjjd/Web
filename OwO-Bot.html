@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from hackysoft.xyz/products by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:56:20 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolve Cloud - Products</title>
+    <link rel="icon" href="evolvelogo.gif" type="image/x-icon">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script defer src="../stats.hackysoft.xyz/script.js" data-website-id="18b5f06f-db47-4d2b-83c2-aba70d90f6b4"></script>
+    <style>
+        :root {
+            --primary: #f97316;
+            --background: #000000;
+            --muted: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --muted-foreground: rgba(255, 255, 255, 0.5);
+            --glow: 0 0 10px rgba(249, 115, 22, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--text);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            perspective: 1000px;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fireflies */
+        .firefly {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            filter: blur(1px);
+            animation: firefly 4s ease-in infinite;
+        }
+
+        @keyframes firefly {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(-20px) scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-40px) scale(1);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            text-shadow: var(--glow);
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Products Section */
+        .products-section {
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 50%);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            flex: 1;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 2rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-description {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary);
+            color: var(--text);
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow);
+        }
+
+        /* Footer styles */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 3rem 0;
+            position: relative;
+            width: 100%;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            padding: 1rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-bottom p {
+            color: var(--muted-foreground);
+        }
+
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 1rem;
+            }
+
+            .product-image {
+                height: 200px;
+            }
+        }
+    </style>
+<script data-cfasync="false" nonce="629786ad-91db-4e61-a807-e35cfd6aa62a">try{(function(w,d){!function(j,k,l,m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5850";j.zaraz._n="629786ad-91db-4e61-a807-e35cfd6aa62a";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce(((u,v)=>({...u[1],...v[1]})),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter((z=>z.startsWith("_zaraz_"))).forEach((y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}}));r.referrerPolicy="origin";r.src="cdn-cgi/zaraz/sd0d9.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async bs=>new Promise((bt=>{if(bs){bs.e&&bs.e.forEach((bu=>{try{const bv=d.querySelector("script[nonce]"),bw=bv?.nonce||bv?.getAttribute("nonce"),bx=d.createElement("script");bw&&(bx.nonce=bw);bx.innerHTML=bu;bx.onload=()=>{d.head.removeChild(bx)};d.head.appendChild(bx)}catch(by){console.error(`Error executing script: ${bu}\n`,by)}}));Promise.allSettled((bs.f||[]).map((bz=>fetch(bz[0],bz[1]))))}bt()}));zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script></head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="evolvelogo.gif" alt="EvolveCloud Logo">
+                    Evolve Cloud
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-section">
+            <div class="container">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="209ee4cb-9d34-485f-b00b-67a9f15c8077.webp" alt="Product 1" class="product-image">
+                        <h3 class="product-title">🔥 Owo Bot Clone</h3>
+                        <p class="product-description">A complete fully working Owo Bot Clone.</p>
+                        <p class="product-price">₹150</p>
+                        <button class="buy-button">Purchase</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="8b2abf72-6ada-4ab3-b848-34c476fa3386.webp" alt="Product 2" class="product-image">
+                        <h3 class="product-title">🔥 Xenon Bot Clone</h3>
+                        <p class="product-description">A complete working Xenon bot clone.</p>
+                        <p class="product-price">₹150</p>
+                        <button class="buy-button">Purchase</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="DALL·E 2025-02-14 20.05.46 - A modern, sleek logo for an all-in-one Discord bot, featuring a combination of icons representing moderation (shield), banking system (coin or dollar .webp" alt="Product 3" class="product-image">
+                        <h3 class="product-title">🔥 All In One Bot</h3>
+                        <p class="product-description">A bot that have all Moderation commands and have invites , welcome features it also have more comman commands.</p>
+                        <p class="product-price">₹100</p>
+                        <button class="buy-button">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        // Add click handlers for buy buttons
+        document.querySelectorAll('.buy-button').forEach(button => {
+            if (!button.hasAttribute('onclick')) {
+                button.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+
+        // Create fireflies
+        function createFirefly() {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.left = Math.random() * window.innerWidth + 'px';
+            firefly.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(firefly);
+
+            // Remove firefly after animation
+            firefly.addEventListener('animationend', () => {
+                firefly.remove();
+            });
+        }
+
+        // Create new fireflies periodically
+        setInterval(createFirefly, 500);
+    </script>
+</body>
+
+<!-- Mirrored from hackysoft.xyz/products by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:56:23 GMT -->
+</html>
