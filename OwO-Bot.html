@@ -372,36 +372,33 @@
     </main>
 
 
-    <script>
-    // Add click handlers for buy buttons
-    document.querySelectorAll('.buy-button').forEach((button, index) => {
-        button.addEventListener('click', () => {
-            let urls = [
-                '/OwO-Bot',  // Product 1: Owo Bot Clone
-                'xenon-bot-purchase.html', // Product 2: Xenon Bot Clone
-                'all-in-one-bot-purchase.html' // Product 3: All In One Bot
-            ];
-            window.location.href = urls[index]; // Opens in the same tab
+     <script>
+        // Add click handlers for buy buttons
+        document.querySelectorAll('.buy-button').forEach(button => {
+            if (!button.hasAttribute('onclick')) {
+                button.addEventListener('click', () => {
+                    window.open('https://discord.gg/CTuTSeteq8', '_blank');
+                });
+            }
         });
-    });
 
-    // Create fireflies
-    function createFirefly() {
-        const firefly = document.createElement('div');
-        firefly.className = 'firefly';
-        firefly.style.left = Math.random() * window.innerWidth + 'px';
-        firefly.style.top = Math.random() * window.innerHeight + 'px';
-        document.body.appendChild(firefly);
+        // Create fireflies
+        function createFirefly() {
+            const firefly = document.createElement('div');
+            firefly.className = 'firefly';
+            firefly.style.left = Math.random() * window.innerWidth + 'px';
+            firefly.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(firefly);
 
-        // Remove firefly after animation
-        firefly.addEventListener('animationend', () => {
-            firefly.remove();
-        });
-    }
+            // Remove firefly after animation
+            firefly.addEventListener('animationend', () => {
+                firefly.remove();
+            });
+        }
 
-    // Create new fireflies periodically
-    setInterval(createFirefly, 500);
-</script>
+        // Create new fireflies periodically
+        setInterval(createFirefly, 500);
+     </script>
 
 </body>
 
