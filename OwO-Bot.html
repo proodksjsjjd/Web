@@ -373,32 +373,28 @@
 
 
     <script>
-        // Add click handlers for buy buttons
-        document.querySelectorAll('.buy-button').forEach(button => {
-            if (!button.hasAttribute('onclick')) {
-                button.addEventListener('click', () => {
-                    window.location.href = 'index.html';
-                });
-            }
+    document.querySelectorAll('.buy-button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            let products = [
+                'OwO-Bot',  // Product 1
+                'Xenon-Bot', // Product 2
+                'All-In-One-Bot' // Product 3
+            ];
+            let productName = products[index];
+            let realFile = productName + '.html'; // Maps to the actual file
+
+            // Change URL without reloading, then navigate
+            window.history.pushState({}, '', '/product/' + productName);
+            window.location.href = realFile; // Redirects in the same tab
         });
+    });
 
-        // Create fireflies
-        function createFirefly() {
-            const firefly = document.createElement('div');
-            firefly.className = 'firefly';
-            firefly.style.left = Math.random() * window.innerWidth + 'px';
-            firefly.style.top = Math.random() * window.innerHeight + 'px';
-            document.body.appendChild(firefly);
+    // Handle Back Button (Optional)
+    window.addEventListener('popstate', () => {
+        window.location.href = 'products.html'; // Back to products page
+    });
+</script>
 
-            // Remove firefly after animation
-            firefly.addEventListener('animationend', () => {
-                firefly.remove();
-            });
-        }
-
-        // Create new fireflies periodically
-        setInterval(createFirefly, 500);
-    </script>
 </body>
 
 <!-- Mirrored from hackysoft.xyz/products by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:56:23 GMT -->
