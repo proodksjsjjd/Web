@@ -935,6 +935,69 @@
     </header>
 
     <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Professional Development Services</h1>
+            </div>
+            <div class="scroll-arrow" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <script>
+                // Create fireflies
+                for(let i = 0; i < 50; i++) {
+                    const firefly = document.createElement('div');
+                    firefly.className = 'firefly';
+                    firefly.style.left = Math.random() * 100 + 'vw';
+                    firefly.style.top = Math.random() * 100 + 'vh';
+                    firefly.style.animationDelay = Math.random() * 4 + 's';
+                    document.querySelector('.hero').appendChild(firefly);
+                }
+
+                // Stats cards glow effect
+                document.querySelectorAll('.stat-card').forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        card.style.setProperty('--mouse-x', `${x}px`);
+                        card.style.setProperty('--mouse-y', `${y}px`);
+                    });
+                });
+
+                // Easter eggs
+                
+                // 1. Konami Code
+                const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+                let konamiIndex = 0;
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.keyCode === konamiCode[konamiIndex]) {
+                        konamiIndex++;
+                        if (konamiIndex === konamiCode.length) {
+                            document.body.style.animation = 'rainbow-bg 5s linear infinite';
+                            alert('Rainbow Mode Activated!');
+                            konamiIndex = 0;
+                        }
+                    } else {
+                        konamiIndex = 0;
+                    }
+                });
+
+                // 2. Secret Key Combination
+                let secretCode = '';
+                document.addEventListener('keypress', (e) => {
+                    secretCode += e.key;
+                    if (secretCode.includes('hacky')) {
+                        alert('You found the secret word! Here\'s a virtual cookie 🍪');
+                        secretCode = '';
+                    }
+                    if (secretCode.length > 10) secretCode = '';
+                });
+
+            </script>
+        </section>
+        
         <section class="products-section">
             <div class="container">
                 <div class="products-grid">
