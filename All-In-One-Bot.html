@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script defer src="../stats.hackysoft.xyz/script.js" data-website-id="18b5f06f-db47-4d2b-83c2-aba70d90f6b4"></script>
     <style>
-        
-
-        #features {
-    margin-top: 0 !important;
-}
-
         :root {
             --primary: #f97316;
             --background: #000000;
@@ -677,15 +671,19 @@
 
         /* Products Section */
         .products-section {
-            min-height: 100vh;
-            padding-top: 120px;
-            padding-bottom: 1rem;
-            background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 50%);
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            flex: 1;
-        }
+    min-height: 100vh;
+    padding-top: 120px; /* Keep this as is */
+    padding-bottom: 0.5rem; /* Change this to a smaller value */
+    background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 50%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+}
+
+#features {
+    margin-top: 0.5rem; /* Change this to a smaller value */
+}
 
         .products-grid {
             display: grid;
