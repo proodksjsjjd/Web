@@ -15,6 +15,50 @@
     z-index: 1;
     margin-top: 2rem;        
 }
+        @media (max-width: 767px) {
+            .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+            }
+            .products-section {
+    min-height: 100vh;
+    padding-top: 120px; /* Keep this as is */
+    padding-bottom: -14 !important; /* Change this to a smaller value */
+    background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 50%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+}
+
+#features {
+    margin-top: -25rem !important; /* Change this to a smaller value */
+}
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+            }
+            .products-section {
+    min-height: 100vh;
+    padding-top: 120px; /* Keep this as is */
+    padding-bottom: -14 !important; /* Change this to a smaller value */
+    background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 50%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+}
+
+#features {
+    margin-top: -25rem !important; /* Change this to a smaller value */
+}
+        }
 
         :root {
             --primary: #f97316;
